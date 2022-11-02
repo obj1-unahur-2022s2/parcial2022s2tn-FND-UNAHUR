@@ -3,7 +3,7 @@ import plantas.*
 class Parcela {
 	var property ancho
 	var property largo
-	const property horasDeSol
+	var property horasDeSol
 	const property plantas = []
 	
 	method superficieParcela() {
@@ -26,17 +26,11 @@ class Parcela {
 	method llegoAlMaximoDePlantas() {
 		return plantas.size() == self.cantidadMaximaParcela()
 	}
-	method condicionesIdealesMentaYHierba() {
-		return self.superficieParcela() > 6
-	}
-	method condicionesIdealesQuiona() {
-		return plantas.all({h => h.alturaDePlanta() < 1.5})
-	}
-	method condicionesIdealesSoja(unaPlanta) {
-		return horasDeSol == plantas.find({unaPlanta.horasDeSolToleredas()})
-	}
 	method condicionesIdealesSojaTransgenica() {
 		return plantas.isEmpty()
+	}
+	method cantidadDePlantasEnParcela() {
+		plantas.size()
 	}
 }
 

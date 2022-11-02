@@ -1,2 +1,22 @@
 import parcelas.*
-
+import plantas.*
+	const parcela1 = new Parcela (ancho = 20, largo = 1, horasDeSol = 8, plantas = [])
+	
+describe "Tests de Parcela 1" {
+	
+	test "Parcela1 - Su superficie es de 20" {
+		assert.equals(20, parcela1.superficieParcela())
+	}
+	test "Parcela1 - El maximo de plantas es 4" {
+		assert.equals(4, parcela1.cantidadMaximaParcela())
+	}
+}
+describe "Tests de Parcela 2" {
+	
+	test "Parcela2 - Su superficie es de 20" {
+		assert.equals(20, parcela1.superficieParcela())
+	}
+	test "Parcela2 - El maximo de plantas es 4" {
+		assert.equals(4, parcela1.cantidadMaximaParcela())
+	}
+}
