@@ -46,7 +46,7 @@ class Soja inherits Planta {
 		return alturaDePlanta / 2
 	}
 	override method  esParcelaIdeal(unaParcela) {
-		return unaParcela.horasDeSol == self.horasDeSolToleradas()
+		return unaParcela.horasDeSol() == self.horasDeSolToleradas()
 	}
 }
 class Quinoa inherits Planta {
