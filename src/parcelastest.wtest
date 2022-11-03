@@ -1,3 +1,4 @@
+/* Faltaron varios test más  en Parcelas */
 import parcelas.*
 import plantas.*
 	const parcela1 = new Parcela (ancho = 20, largo = 1, horasDeSol = 8, plantas = [])

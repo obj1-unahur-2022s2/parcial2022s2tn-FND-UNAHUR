@@ -1,3 +1,6 @@
+/*
+ * En cantidadDePlantasEnParcela() te falto el return
+ */
 import plantas.*
 
 class Parcela {
@@ -30,7 +33,7 @@ class Parcela {
 		return plantas.isEmpty()
 	}
 	method cantidadDePlantasEnParcela() {
-		plantas.size()
+		return plantas.size()
 	}
 }
 
