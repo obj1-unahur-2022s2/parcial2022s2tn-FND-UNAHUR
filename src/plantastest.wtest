@@ -1,3 +1,6 @@
+/*
+ * Test OK
+ */
 import plantas.*
 describe "Test de Plantas"  {
 	

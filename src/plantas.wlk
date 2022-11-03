@@ -1,9 +1,15 @@
+/*
+* El códgio de plantas no compilaba missing EOF at '}'	line: 78 /Parcial2022s2TN/src/plantas.wlk
+* En daNuevasSemillas() de Soja faltaban los paréntesis que agrupaba las condiciones del or
+* En esParcelaIdeal de Soja hacias un self.horasDeSolToleradas() y este método no existe porque hay un typo (un error de tipo) cuando creaste el abstracto que le pusiste horasDeSolToleredas
+* En esParcelaIdeal de Quino le enviaste el mensaje all a la parcela, y se debias enviar a las plantas de la parcela eturn unaParcela.plantas().all(....)
+* En esParcelaIdeal de SojaTransgenica te faltó el return
+*/
 import parcelas.*
 
 class Planta {
 	var property anoDeObtencion
 	var property alturaDePlanta
-	//var horasDeSolToleradas
 	
 	method horasDeSolToleredas() 
 	method esFuerte() {return self.horasDeSolToleredas() > 10}
@@ -37,7 +43,7 @@ class Soja inherits Planta {
 			return 9
 	}
 	override method daNuevasSemillas() {
-		return super() || self.mayorA2007() && alturaDePlanta > 1
+		return super() || (self.mayorA2007() && alturaDePlanta > 1)
 	}
 	method mayorA2007() {
 		return anoDeObtencion > 2007 
@@ -46,7 +52,8 @@ class Soja inherits Planta {
 		return alturaDePlanta / 2
 	}
 	override method  esParcelaIdeal(unaParcela) {
-		return unaParcela.horasDeSol() == self.horasDeSolToleradas()
+		return unaParcela.horasDeSol() == self.horasDeSolToleredas()
+		                                       
 	}
 }
 class Quinoa inherits Planta {
@@ -69,16 +76,16 @@ class Quinoa inherits Planta {
 	}
 	
 	override method esParcelaIdeal(unaParcela) {
-		return unaParcela.all({h => h.alturaDePlanta() < 1.5})
+		return unaParcela.plantas().all({h => h.alturaDePlanta() < 1.5})
 	}
 }
-}
+
 class SojaTransgenica inherits Soja {
 	override method daNuevasSemillas() {
 		return false
 	}
 	override method esParcelaIdeal(unaParcela) {
-		unaParcela.cantidadDePlantasEnParcela() == 1
+		return unaParcela.cantidadDePlantasEnParcela() == 1
 	}
 }
 class HierbaBuena inherits Menta {

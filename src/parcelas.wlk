@@ -1,3 +1,8 @@
+/*
+ * En cantidadDePlantasEnParcela() te falto el return
+ * La segunda condición en plantarUnaPlanta || self.tieneComplicaciones() no es la que se pedia en el enunciado
+ * Faltaron las Parcelas Ecologias e Industriales con el metodo se asociaBien(planta)
+ */
 import plantas.*
 
 class Parcela {
@@ -30,7 +35,7 @@ class Parcela {
 		return plantas.isEmpty()
 	}
 	method cantidadDePlantasEnParcela() {
-		plantas.size()
+		return plantas.size()
 	}
 }
 
